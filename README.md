@@ -11,6 +11,7 @@ and you want to make an educated guess about what the system is going to do next
 
 **We want to predict a tracked object's position, how fast it's going in what direction, and how fast it is
 turning (yaw rate) at any point in time.** 
+
 - In essence we want to get: the position of the system in cartesian coordinates, the velocity magnitude, the yaw angle in radians, and yaw rate  in radians per second `(x, y, v, yaw, yawrate)`
 - We are assuming a **constant turn/yaw rate and velocity magnitude model** (CRTV) for this particular system
 
@@ -26,15 +27,19 @@ turning (yaw rate) at any point in time.**
 
 -----
 # BASIC USAGE
-- Dependencies are same as in [here](https://github.com/mithi/fusion-ekf)
+- 원문 repo는 Mac 환경에서 실행. 아래에서는 우분투18.04에서 실행가능했던 조건 및 방법 서술
+- Dependencies & environment
+  - cmake >= 3.5
+  - make >= 4.1
+  - gcc/g++ >= 5.4
 - Clone this repository 
 ```
 $ git clone https://github.com/mithi/fusion-ukf/
 ```
 - Go inside the `build` folder and compile: 
 ```
-$ cd build
-$ CC=gcc-6 cmake .. && make
+$ mkdir build && cd build
+$ cmake .. && make
 ```
 
 - To execute inside the `build` folder use the following format: 
@@ -81,6 +86,9 @@ const double STD_YAWRATE_NOISE = 0.6; // yaw acceleration in rad/s^2
 ![terminal output](https://github.com/mithi/Fusion-UKF-CPP/blob/master/images/terminal_output.png)
 
 ### Here's a visualization of how it's performing
+
+graphs 폴더 안의 jupyter notebook 코드를 visual studio code에서 실행시 확인가능함
+
 ![Visualization](https://github.com/mithi/Fusion-UKF-CPP/blob/master/images/graph-1.png)
 
 ###  Here's a visualization of the Radar's NIS
@@ -94,5 +102,3 @@ const double STD_YAWRATE_NOISE = 0.6; // yaw acceleration in rad/s^2
 
 ###  And here's an overview of what the instantiated classes are doing
 ![UKF Algorithm Overview 2](https://github.com/mithi/Fusion-UKF-CPP/blob/master/images/FusionUKF_overview_2.png)
-
-# [🐳](https://mithi.github.io/deep-blueberry) [☕️](https://ko-fi.com/minimithi) [🧧](https://www.paypal.me/minimithi) 
